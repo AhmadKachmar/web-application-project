@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Leaderboard specific styles */
+        
+        
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navdiv">
+                <div class="logo"><a href="#">Scratch</a></div>
+                <ul class="nav-btns">
+                    <li><a href="HomePage.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="Q&A.html">Q&A</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <h2>Leaderboard - Streaks</h2>
+    <div class="leader_container">
+        <table>
+            
+            <tbody id="leaderboardBody"></tbody>
+        </table>
+    </div>
+    
+    <footer>
+        <p style="color: wheat;">&copy; 2025 STEAM Math with Scratch. All rights reserved.</p>
+        <!-- Social media icons -->
+    </footer>
+
+    <script>
+    // Fetch and display the leaderboard
+    async function fetchLeaderboard() {
+        try {
+            const response = await fetch('Leaderboard.php');
+            if (!response.ok) throw new Error('Network response error');
+            const data = await response.json();
+            
+            // Debugging: log the response
+            console.log('Leaderboard data:', data);
+            
+            displayLeaderboard(data.leaderboard, data.currentUser);
+        } catch (error) {
+            console.error('Error fetching leaderboard:', error);
+            document.getElementById('leaderboardBody').innerHTML = 
+                '<tr><td colspan="3">Error loading leaderboard. Please try again later.</td></tr>';
+        }
+    }
+
+    // Display leaderboard function
+    function displayLeaderboard(leaderboardData, currentUser) {
+        const tbody = document.getElementById('leaderboardBody');
+        tbody.innerHTML = '';
+
+        // Add header row
+        const headerRow = document.createElement('tr');
+        headerRow.innerHTML = `
+            <th>Rank</th>
+            <th>Username</th>
+            <th>Score</th>
+        `;
+        tbody.appendChild(headerRow);
+
+        // Add leaderboard rows
+        leaderboardData.forEach((user) => {
+            let trophy = '';
+            if (user.rank === 1) trophy = ' <span class="gold">🥇</span>';
+            else if (user.rank === 2) trophy = ' <span class="silver">🥈</span>';
+            else if (user.rank === 3) trophy = ' <span class="bronze">🥉</span>';
+
+            const row = document.createElement('tr');
+            if (user.isCurrentUser) {
+                row.classList.add('current-user');
+            }
+            row.innerHTML = `
+                <td>${user.rank}</td>
+                <td>${user.name}${trophy}</td>
+                <td>${user.score}</td>
+            `;
+            tbody.appendChild(row);
+        });
+
+        // Add current user if they're not in the top 20
+        if (currentUser && !leaderboardData.some(u => u.isCurrentUser)) {
+            const separatorRow = document.createElement('tr');
+            separatorRow.classList.add('outside-top');
+            separatorRow.innerHTML = `
+                <td>...</td>
+                <td>...</td>
+                <td>...</td>
+            `;
+            tbody.appendChild(separatorRow);
+            
+            const userRow = document.createElement('tr');
+            userRow.classList.add('current-user');
+            userRow.innerHTML = `
+                <td>${currentUser.rank}</td>
+                <td>${currentUser.name}</td>
+                <td>${currentUser.score}</td>
+            `;
+            tbody.appendChild(userRow);
+        }
+    }
+
+    // Load leaderboard when page loads
+    document.addEventListener('DOMContentLoaded', fetchLeaderboard);
+    </script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Progress | Scratch</title>
+    <link rel="stylesheet" href="Style.css">
+    <style>
+        
+    </style>
+    <script>
+     // Fetch grades using AJAX
+fetch('progress.php')
+    .then(response => response.json()) // Get the JSON response
+    .then(grades => {
+        console.log('Grades:', grades);
+
+        // Ensure grades are numbers
+        grades = grades.map(grade => parseFloat(grade)).filter(grade => !isNaN(grade));
+
+        // Get the elements for images and progress messages
+        const overallProgressImage = document.getElementById('overallProgressImage');
+        const recentProgressImage = document.getElementById('recentProgressImage');
+        const overallProgMessage = document.querySelector('#overall p');
+        const recentProgMessage = document.querySelector('#recent p');
+
+        if (grades.length >= 2) {
+            // Calculate overall progress and recent progress
+            const overallProgress = grades[grades.length - 1] - grades[0];
+            const recentProgress = grades[grades.length - 1] - grades[grades.length - 2];
+
+            // Set the overall progress image and message
+            if (overallProgress > 0) {
+                overallProgressImage.src = 'positive_progress.png';
+                overallProgMessage.textContent = "Aced! You're doing great!!";
+            } else if (overallProgress < 0) {
+                overallProgressImage.src = 'negative_progress.png';
+                overallProgMessage.textContent = "It's ok, you'll do better next time.";
+            } else {
+                overallProgressImage.src = 'neutral_progress.png'; // No image for neutral progress
+                overallProgMessage.textContent = "Don't worry, no progress is still good progress. Try our lessons and practice to improve.";
+            }
+
+            // Set the recent progress image and message
+            if (recentProgress > 0) {
+                recentProgressImage.src = 'positive_progress.png';
+                recentProgMessage.textContent = "Aced! You're doing great!!";
+            } else if (recentProgress < 0) {
+                recentProgressImage.src = 'negative_progress.png';
+                recentProgMessage.textContent = "It's ok, you'll do better next time.";
+            } else {
+                recentProgressImage.src = 'neutral_progress.png'; // No image for neutral progress
+                recentProgMessage.textContent = "Don't worry, no progress is still good progress. Try our lessons and practice to improve.";
+            }
+        } else {
+            // Handle cases with insufficient grades
+            overallProgMessage.textContent = "Not enough grades to calculate overall progress.";
+            recentProgMessage.textContent = "Not enough grades to calculate recent progress.";
+            overallProgressImage.src = '';
+            recentProgressImage.src = '';
+        }
+    })
+    .catch(error => {
+        console.error('Error fetching grades:', error);
+
+        // Handle errors gracefully
+        const overallProgMessage = document.querySelector('#overall p');
+        const recentProgMessage = document.querySelector('#recent p');
+        overallProgMessage.textContent = "Error calculating overall progress.";
+        recentProgMessage.textContent = "Error retrieving recent progress.";
+
+        const overallProgressImage = document.getElementById('overallProgressImage');
+        const recentProgressImage = document.getElementById('recentProgressImage');
+        overallProgressImage.src = '';
+        recentProgressImage.src = '';
+    });
+        </script>
+</head>
+<body>
+    <!-- YOUR EXACT ORIGINAL NAVBAR - NOT MODIFIED -->
+    <header>
+        <nav class="navbar">
+            <div class="navdiv">
+                <div class="logo"><a href="#">Scratch</a></div>
+                <ul class="nav-btns">
+                    <li><a href="HomePage.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="Q&A.html">Q&A</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <h2>Your Progress Report</h2>
+    <div class="progress-results">
+        
+        
+        <div id="overall">
+            <h3>Overall Progress</h3>
+            <img class="progressImages" id="overallProgressImage" alt="Progress Indicator" />
+            <p id="Prog"></p>
+        </div>
+        
+        <div id="recent">
+            <h3>Recent Progress</h3>
+            <img class="progressImages" id="recentProgressImage" alt="Progress Indicator" />
+            <p id="Prog"></p>
+        </div>
+        
+        <div id="debug" style="display:none;">
+            <h3>Debug Info</h3>
+            <pre id="debug-data"></pre>
+        </div>
+    </div>
+
+    
+</body>
+</html>

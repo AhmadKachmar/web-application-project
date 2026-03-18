@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="LoginPage.css">
+</head>
+<body>
+    <section>
+        <div class="container">
+            <!-- Login Form -->
+            <div class="form sign-in-form">
+                <div class="wrapper">
+                    <form action="http://localhost/backend/signin.php" method="POST">
+                        <h1>Login to your account</h1>
+                        <p>Use your email and password to sign in</p>
+                        <label for="login-username">Username:</label>
+                        <p class="error_msgs" id="username_notFound"></p>
+                        <input type="text" id="login-username" name="username" required placeholder="username">
+                        
+                        <label for="login-password">Password:</label>
+                        <p class="error_msgs" id="password_wrong"></p>
+                        <input type="password" id="login-password" name="password" required placeholder="password">
+                        
+                        <button id="login-button" type="submit">Log in</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Sign-Up Form -->
+            <div class="form sign-up-form active">
+                <div class="wrapper">
+                    <form action="http://localhost/backend/signup.php" method="POST">
+                        <h1>Sign up</h1>
+                        <p>New to scratch? Create a new account!</p>
+                        <label for="signup-username">Username:</label>
+                        <p class="error_msgs" id="username_taken"></p>
+                        <input type="text" id="signup-username" name="username" required placeholder="username">
+                        
+                        <label for="signup-email">Email:</label>
+                        <p class="error_msgs" id="email_taken"></p>
+                        <input type="email" id="signup-email" name="email" required placeholder="email" > <!--pattern=".+@(gmail|hotmail).com"-->
+                        
+                        <label for="signup-password">Password:</label>
+                        <input type="password" id="signup-password" name="password" required placeholder="password">
+                        
+                        <button id="signup-button" type="submit">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Overlay Container -->
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-left">
+                        <h1 class="title">Hello <br> friends</h1>
+                        <p><br>If you already have an <br>account, login here and learn</p>
+                        <button id="signInButton">Log In</button>
+                    </div>
+                    <div class="overlay-right">
+                        <h1 class="title">Start your <br>learning journey now</h1>
+                        <p>If you're new here, sign up to start your learning experience</p>
+                        <button id="signUpButton">Create Account</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p style="color: wheat;">&copy; 2025 STEAM Math with Scratch. All rights reserved.</p>
+    </footer>
+    <script src="LoginPage.js"></script>
+    <script>
+        // Existing functions...
+        function username_notFound(){
+            document.getElementById("username_notFound").innerHTML = "Username Not Found!";
+        }
+    
+        function passwordWrong(){
+            document.getElementById("password_wrong").innerHTML = "Incorrect Password!";
+        }
+    
+        function usernameTaken(){
+            document.getElementById("username_taken").innerHTML = "Username already taken!";
+        }
+    
+        function emailTaken(){
+            document.getElementById("email_taken").innerHTML = "Email already registered!";
+        }
+        
+        
+        // Validate email format
+        function validateEmailFormat(email) {
+            const regex = /^.+@(gmail|hotmail)\.com$/;
+            return regex.test(email);
+        }
+
+        // Show error message in the existing <p> tag
+        function showEmailError(message) {
+            document.getElementById("email_taken").textContent = message;
+        }
+
+        // Clear error message
+        function clearEmailError() {
+            document.getElementById("email_taken").textContent = "";
+        }
+
+        // Real-time validation while typing
+        document.getElementById("signup-email").addEventListener("input", function() {
+            const email = this.value;
+            
+            if (email.length === 0) {
+                clearEmailError(); // Clear if empty
+            } else if (!validateEmailFormat(email)) {
+                showEmailError("Enter a valid gmail or hotmail.com");
+            } else {
+                clearEmailError(); // Clear if valid
+            }
+        });
+
+        // Validate on form submission (this part used deepseek AI)
+        document.querySelector(".sign-up-form form").addEventListener("submit", function(event) {
+            const email = document.getElementById("signup-email").value;
+            
+            if (!validateEmailFormat(email)) {
+                event.preventDefault(); // Stop form submission
+                showEmailError("Please use a valid gmail.com or hotmail.com email");
+            }
+            // If valid, form submits normally
+        });
+
+
+        // Check URL parameters for errors (this part used deepseek AI)
+        const params = new URLSearchParams(window.location.search);
+        if (params.get("error") === "username_not_found") {
+            username_notFound();
+        } else if (params.get("error") === "invalid_password") {
+            passwordWrong();
+        } else if (params.get("error") === "username_taken") {
+            usernameTaken();
+        } else if (params.get("error") === "email_taken") {
+            emailTaken();
+        }
+    
+        // Rest of your existing script...
+        function registerUser(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            let username = document.getElementById("signup-username").value;
+            let email = document.getElementById("signup-email").value;
+            let password = document.getElementById("signup-password").value;
+    
+            let user = { username, email, password };
+            localStorage.setItem(username, JSON.stringify(user));
+            alert("Sign-up successful! You can now log in.");
+            return true;
+        }
+    
+        function loginUser(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            let username = document.getElementById("login-username").value;
+            let password = document.getElementById("login-password").value;
+            let user = localStorage.getItem(username);
+    
+            localStorage.setItem("currentUser", username);
+        }
+        
+        function redirectToDashboard(event) {
+            event.preventDefault(); // Prevent form submission
+            window.location.href = "dashboard.html"; // Redirect to the dashboard page
+        }
+        
+        window.addEventListener('load', function() {
+            // Clear the URL parameters after displaying errors
+            if (window.location.search.includes('error=')) {
+                history.replaceState(null, '', window.location.pathname);
+            }
+        });
+    </script>
+</body>
+</html>

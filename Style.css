@@ -1,0 +1,1407 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+*{
+    text-decoration: none;
+}
+
+
+
+/* naviagation bar */
+.navbar{
+    background:wheat; 
+    font-family: calibri; 
+    padding: 0px;
+    padding-bottom: 10px;
+    padding-left: 50px;
+    border-radius: 50px;
+    top:1px;
+}
+
+#signup-button{
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit text color */
+}
+
+.navdiv{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.nav-btns{
+    display:inline-flex;
+    align-items: center;
+}
+
+.logo a{
+    font-size: 55px; 
+    font-weight: 1000; 
+    color:  rgba(8, 31, 8, 0.868);
+    font-family: "Poppins";
+}
+li{
+    list-style: none; 
+    color: blanchedalmond;
+    margin-top: 10px;
+
+}
+h1, h2 {
+    color: blanchedalmond;
+}
+li a{
+    color: black; 
+    font-size: 18px; 
+    font-weight: bold; 
+    margin-right: 25px;
+   
+}
+button{ 
+    background-color: rgba(8, 31, 8, 0.868);
+    color: wheat;
+    margin-right: 20px; 
+    margin-left: 10px;
+    margin-top: 10px;
+    border-radius: 20px; 
+    padding: 10px; 
+    width: 90px;
+}
+
+button:hover{
+    background-color: rgb(183, 129, 63);
+    color: #1b3e16;
+    transform: translateY(-5px);
+}
+
+
+body{
+    background: linear-gradient(to right,
+    #263124,
+    #476953
+    );
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    margin: 0;
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+
+footer {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    
+}
+/* Progress Page */
+.progress-results {
+    display: flex;
+    gap: 40px;
+    background-color: #263124;
+    padding: 40px;
+    margin: 10%;
+    border-radius: 25px;
+    box-shadow:5px 5px 15px black;
+    margin-top: 0px;
+}
+.progressImages{
+    width: 300px;
+    margin-left: 25%;
+}
+#Prog{
+    text-align: center; /* Center the text horizontally */
+    max-width: 400px; /* Limit the width of the text block */
+    margin: 0 auto; /* Center it vertically within the container */
+    line-height: 1.5; /* Add spacing between lines */
+    padding: 40px; 
+}
+
+#overall {
+    flex: 1; /* Take 2 parts of the space */
+    background-color:#a3b18a2b;
+    border-radius: 25px;
+}
+
+#recent {
+    flex: 1; /* Take 1 part of the space */
+    background-color:#a3b18a2b;
+    border-radius: 25px;    
+}
+
+
+
+/* Home page */
+.tabs {
+    display: contents; /* This ensures the children are part of the grid */
+}
+
+.main-container {
+    display: flex;
+    gap: 20px; /* Space between the two sections */
+    padding: 20px;
+    align-items: flex-start; /* Align items to the top */
+}
+
+.home {
+    flex: 1; /* Takes up 25% of the space (1 part) */
+    padding: 30px;
+    background-color:#8fa37a; /* Optional: Add background color */
+    border-radius: 25px; /* Optional: Add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
+    font-family: "Poppins";
+    height: fit-content; /* Ensure the height fits its content */
+    margin-top: 42px;
+    margin-left: 7%;
+}
+
+/* Box container for the green boxes */
+.box-container {
+    flex: 2; /* Takes up 75% of the space (3 parts) */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns for the boxes */
+    gap: 12%; /* Space between the boxes */
+    margin: 3%;
+    margin-bottom: 20%;
+}
+
+/* Ensure the box content is aligned to the left */
+.box-content {
+    position: absolute;
+    bottom: 35px;
+    left: 40px;
+    text-align: left; /* Ensure text is aligned to the left */
+}
+
+/* Ensure the text inside the box is aligned to the left */
+.box h2, .box p {
+    margin: 0;
+    padding: 0;
+    line-height: 1.3;
+    text-align: left; /* Align text to the left */
+}
+
+/* Ensure the box itself is aligned to the left */
+.box {
+    background-color: #a3b18a;
+    border-radius: 25px;
+    padding: 15px;
+    padding-left: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.618);
+    width: 410px;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Align content to the bottom */
+    align-items: flex-start; /* Align content to the left */
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: 0.5s ease-in-out transform;
+    position: relative;
+    margin-left: 3%;
+}
+
+.box h2 {
+    font-size: 24px; /* Adjust font size as needed */
+    font-weight: bold; /* Make text bold */
+}
+
+.box p {
+    font-size: 14px; /* Adjust font size as needed */
+    color: rgba(0, 0, 0, 0.8); /* Optional: Adjust text color */
+}
+
+.box:hover {
+    background-color: #8fa37a; /* Change color on hover */
+    transform: translateY(-18px) translateX(-4px);
+}
+/*Ensure the <a> tag behaves like a block-level element */
+a.box {
+    display: block;
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit text color */
+}
+
+.box-txt{
+   font-family: "Poppins";
+   color: #263124;
+}
+
+.small-txt{
+    font-family: "ubuntu";
+    padding-top: 10%;
+}
+
+#practice{
+    background-image: url(flat-color-minimalist-abstract-background_144684-54.avif);
+}
+#quiz{
+    background-image:  url(gradient-blur-pink-blue-abstract-background_53876-117324.avif);
+}
+#leaderboard{
+    background-image:url(abstract-pastel-orange-minimalist-gradient-background-trendy-peach-fuzz-color-backdrop-delicate-waves-generative-ai-300143749.webp);
+}
+
+#projCreate{
+    background-image:url(gradient-blue-color-background-modern-minimalist-design-abstract_343694-2124.avif);
+    background-position: center;
+}
+
+#progress{
+    background-image: url(modern-background-designs-gradient-green_343694-2033.avif)
+}
+
+#tutorials{
+    background-image: url(education-website-template_499746-113.png);
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover;   
+}
+
+#leader,#leader2{
+    color: wheat;
+}
+
+#profile{
+    background-image:  url(images.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.icon {
+    position: absolute; /* Position the icon absolutely */
+    top: 10px; /* Adjust distance from the top */
+    right: 10px; /* Adjust distance from the right */
+}
+
+
+
+/* Practice Page */
+iframe{
+    border-radius: 25px;
+    border: none;  
+    justify-content: center;
+    display: block; /* Make the iframe a block-level element */
+    margin: 0 auto; /* Center the iframe horizontally */
+    padding: 20px;
+}
+/* Center the iframes */
+.section {
+    text-align: center; /* Center the content inside the section */
+    padding-top: 70px;
+}
+
+.practice-container {
+    max-width: 900px;
+    margin: auto;
+    background: rgba(8, 31, 8, 0.44);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+}
+.bg{
+    background-color: rgba(8, 31, 8, 0.868);
+}
+p{
+    color: blanchedalmond; }
+.turbowarp{
+    color: rgb(221, 133, 147);
+}
+
+.turbowarp:visited{
+    color: blue;
+}
+
+.titles{
+    margin: 0;
+}
+
+hr {
+    height: 5px;
+    border: none;
+    background-color: wheat;
+    box-shadow: 0 4px 10px rgb(0, 0, 0); /* Shadow effect */
+    transition: width 1s ease-in-out;
+    width: 60%;
+}
+
+hr:hover {
+    width: 100%; /* Animate width on hover */
+}
+
+
+
+/* Profile Page */
+.profile-container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center content vertically */
+    text-align: center; /* Center text within */
+    padding: 20px;
+}
+
+/* Profile Picture */
+.profile-pic {
+    width: 220px;
+    height: 220px;
+    margin-bottom: 15px;
+    overflow: hidden; /* Ensures the image stays within bounds */
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease; /* Smooth scaling transition */
+}
+
+/* User Info */
+.profile-info {
+    max-width: 400px; /* Set a max width for better spacing */
+}
+
+.profile-info h1 {
+    font-size: 32px;
+    color: wheat;
+    margin-bottom: 10px;
+}
+
+.profile-info p {
+    font-size: 18px;
+    color: blanchedalmond;
+    margin: 5px 0;
+}
+
+/* Button Styling */
+.profile-info button {
+    background-color: rgba(8, 31, 8, 0.868);
+    color: wheat;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.profile-info button:hover {
+    background-color: rgb(183, 129, 63);
+    color: #1b3e16;
+    transform: scale(1.05); /* Slight scaling effect */
+}
+
+/* Minimized Profile Picture */
+.profile-pic.minimized {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 60px;
+    height: 60px;
+    z-index: 1000;
+}
+
+
+/* contact */
+/* Center the contact container */
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    max-width: 400px; /* Adjust width as needed */
+    margin: 0 auto; /* Center the container */
+    padding: 20px;
+    background-color: rgba(13, 28, 17, 0.477); /* Match your theme */
+    border-radius: 25px; /* Rounded corners */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.803); /* Add shadow */
+}
+
+/* Style the form */
+#contactForm {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Full width of the container */
+}
+
+/* Style the labels */
+#contactForm label {
+    margin-top: 10px; /* Space between inputs */
+    font-size: 16px;
+    color: blanchedalmond; /* Match your theme */
+}
+
+/* Style the inputs and textarea */
+#contactForm input,
+#contactForm textarea {
+    padding: 10px;
+    margin-top: 5px; /* Space between label and input */
+    border: 1px solid #ccc;
+    border-radius: 5px; /* Rounded corners */
+    font-size: 14px;
+    width: 95%; /* Full width */
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Style the submit button */
+#contactForm button {
+    margin-top: 20px; /* Space above the button */
+    padding: 10px 20px;
+    background-color: rgba(8, 31, 8, 0.868); /* Match your theme */
+    color: wheat; /* Match your theme */
+    border: none;
+    border-radius: 20px; /* Rounded corners */
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#contactForm button:hover {
+    background-color: rgb(183, 129, 63); /* Match your theme */
+    color: #1b3e16; /* Match your theme */
+    transform: translateY(-5px); /* Add hover effect */
+}
+
+
+
+
+/* tutorials */
+/* Tutorial Section Styles */
+.tutorial-section {
+    margin-bottom: 40px;
+}
+
+.tutorial-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.tutorial-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.tutorial-section ul li {
+    margin-bottom: 10px;
+}
+
+.tutorial-section ul li a {
+    color: blanchedalmond;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.tutorial-section ul li a:hover {
+    text-decoration: underline;
+}
+.video-demo {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.video-demo iframe {
+    width: 100%;
+    max-width: 300px;
+    height: 200px;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Grid Container */
+.tutorial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 20px; /* Space between cards */
+    padding: 20px;
+}
+
+/* Tutorial Card Styles */
+.tutorial-card {
+    background-color:#8fa37a9d; /* Match your theme */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.tutorial-card h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: blanchedalmond;
+}
+
+.tutorial-card .video-demo {
+    margin-bottom: 15px;
+}
+
+.tutorial-card .video-demo iframe {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    border: none;
+}
+
+.tutorial-card .tutorial-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgba(8, 31, 8, 0.868); /* Match your theme */
+    color: wheat;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.tutorial-card .tutorial-link:hover {
+    background-color: rgba(255, 198, 222, 0.539); /* Match your theme */
+    color: #1b3e16;
+}
+
+.tutorial-content{
+    margin-left: 20px;
+}
+
+
+/* Body Content Container */
+.content {
+    padding: 40px 20px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Main Heading */
+.content h1 {
+    font-size: 48px;
+    font-family: 'Poppins', sans-serif;
+    color: blanchedalmond;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+/* Paragraph Text */
+.content p {
+    font-size: 18px;
+    font-family: 'Ubuntu', sans-serif;
+    color: blanchedalmond;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Call-to-Action Button */
+.button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: rgba(8, 31, 8, 0.868);
+    color: wheat;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 25px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px;
+}
+
+.button:hover {
+    background-color: rgba(183, 129, 63, 0.8);
+    transform: translateY(-5px);
+}
+
+/* Inspiration Section */
+.content h2 {
+    font-size: 32px;
+    font-family: 'Poppins', sans-serif;
+    color: blanchedalmond;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+/* Inspiration Links List */
+.content ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.content ul li {
+    margin-bottom: 15px;
+}
+
+.content ul li a {
+    font-size: 18px;
+    font-family: 'Ubuntu', sans-serif;
+    color: wheat;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.content ul li a:hover {
+    color: rgba(245, 222, 179, 0.8);
+}
+
+
+/* About Us Section */
+.about-us {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.about-us h1 {
+    font-size: 48px;
+    font-family: 'Poppins', sans-serif;
+    color: blanchedalmond;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.about-us h2 {
+    font-size: 32px;
+    font-family: 'Poppins', sans-serif;
+    color: blanchedalmond;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.about-us p {
+    font-size: 18px;
+    font-family: 'Ubuntu', sans-serif;
+    color: blanchedalmond;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.about-us ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.about-us ul li {
+    font-size: 18px;
+    font-family: 'Ubuntu', sans-serif;
+    color: blanchedalmond;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.about-us ul li::before {
+    content: "•";
+    color: rgba(8, 31, 8, 0.868);
+    font-size: 24px;
+    position: absolute;
+    left: 0;
+    top: -2px;
+}
+
+.about-us b {
+    color: rgba(8, 31, 8, 0.868);
+    font-weight: bold;
+}
+
+#feedbackForm {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(8, 31, 8, 0.44);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#feedbackForm label {
+    font-size: 18px;
+    font-weight: bold;
+    color: blanchedalmond;
+    display: block;
+    margin-bottom: 10px;
+}
+
+#feedbackForm input,
+#feedbackForm textarea {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(245, 222, 179, 0.5);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    color: blanchedalmond;
+    font-size: 16px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#feedbackForm textarea {
+    resize: vertical;
+    height: 150px;
+}
+
+#feedbackForm button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: rgba(8, 31, 8, 0.868);
+    color: wheat;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#feedbackForm button:hover {
+    background-color: rgba(183, 129, 63, 0.8);
+    transform: translateY(-5px);
+}
+
+/* Previous Feedback Section */
+h3 {
+    font-size: 28px;
+    font-family: 'Poppins', sans-serif;
+    color: blanchedalmond;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.feedback-list {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(8, 31, 8, 0.44);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.feedback-list div {
+    font-size: 16px;
+    color: blanchedalmond;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    border: 1px solid rgba(245, 222, 179, 0.5);
+}
+
+.feedback-list strong {
+    color: rgba(8, 31, 8, 0.868);
+}
+body {
+    font-family: 'Ubuntu', sans-serif;
+    color: blanchedalmond;
+    background: linear-gradient(to right, #263124, #476953);
+    margin: 0;
+    padding: 0;
+}
+
+/* Feedback Form Section */
+h2 {
+    font-size: 36px;
+    font-family: 'Poppins', sans-serif;
+    color: blanchedalmond;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+/* Question Form */
+#questionForm {
+    background: rgba(8, 31, 8, 0.44);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px;
+}
+
+#questionForm label {
+    font-size: 18px;
+    font-weight: bold;
+    color: blanchedalmond;
+    display: block;
+    margin-bottom: 10px;
+}
+
+#questionForm input,
+#questionForm textarea {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(245, 222, 179, 0.5);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    color: blanchedalmond;
+    font-size: 16px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#questionForm textarea {
+    resize: vertical;
+    height: 150px;
+}
+
+#questionForm button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: rgba(8, 31, 8, 0.868);
+    color: wheat;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#questionForm button:hover {
+    background-color: rgba(183, 129, 63, 0.8);
+    transform: translateY(-5px);
+}
+
+/* Questions List */
+#questionsList {
+    background: rgba(8, 31, 8, 0.44);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#questionsList div {
+    font-size: 16px;
+    color: blanchedalmond;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    border: 1px solid rgba(245, 222, 179, 0.5);
+}
+
+#questionsList strong {
+    color: rgba(8, 31, 8, 0.868);
+}
+
+#questionsList hr {
+    border: 0;
+    height: 1px;
+    background: rgba(245, 222, 179, 0.5);
+    margin: 10px 0;
+}
+
+/* Quiz-specific styles */
+.button-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#quiz-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#questions {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.question {
+    background-color: rgba(8, 31, 8, 0.44);
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.question p {
+    font-size: 18px;
+    color: blanchedalmond;
+    margin-bottom: 10px;
+}
+
+.quiz-input {
+    padding: 10px;
+    border: 1px solid rgba(245, 222, 179, 0.5);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    color: blanchedalmond;
+    font-size: 16px;
+    font-family: 'Ubuntu', sans-serif;
+    width: 80%;
+    max-width: 200px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.quiz-input::placeholder {
+    color: rgba(245, 222, 179, 0.7);
+}
+
+#result-container {
+    margin-top: 20px;
+    font-size: 18px;
+    color: blanchedalmond;
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+#result-container p {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: rgba(8, 31, 8, 0.44);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: rgba(8, 31, 8, 0.868);
+    color: wheat;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+}
+
+.button:hover {
+    background-color: rgba(183, 129, 63, 0.8);
+    transform: translateY(-5px);
+}
+
+
+.leader_container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow:5px 5px 15px rgba(0, 0, 0, 0.56);
+    background-color: #263124;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 2rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    font-weight: bold;
+}
+
+.outside-top {
+    text-align: center;
+}
+
+.table_leader{
+    background-color: #8fa37a;
+}
+
+
+
+
+
+
+
+/* Responsive Styles for Mobile Devices */
+@media (max-width: 768px) {
+    /* Navigation Bar */
+    .navbar {
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 25px;
+    }
+
+    .navdiv {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-btns {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo a {
+        font-size: 40px;
+    }
+
+    li a {
+        font-size: 16px;
+        margin-right: 15px;
+    }
+
+    button {
+        margin-right: 10px;
+        margin-left: 0;
+        width: 80px;
+    }
+
+    /* Home Page */
+
+    .main-container {
+        display: flex;
+        gap: 1px; /* Space between the two sections */
+        padding: 2px;
+        align-items: flex-start; /* Align items to the top */
+    }
+    
+    .home {
+        flex: 1; /* Takes up 25% of the space (1 part) */
+        padding: 20px;
+        background-color:#8fa37a; /* Optional: Add background color */
+        border-radius: 25px; /* Optional: Add rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
+        font-family: "Poppins";
+        height: fit-content; /* Ensure the height fits its content */
+        margin-top: 10%;
+        margin-left: 0%;
+    }
+    
+    /* Box container for the green boxes */
+    .box-container {
+        flex: 1; /* Takes up 75% of the space (3 parts) */
+        display: grid;
+        grid-template-columns: repeat(1, 1fr); /* Two columns for the boxes */
+        gap: 4%; /* Space between the boxes */
+        margin-top: 10%;
+    }
+    .box {
+        background-color: #a3b18a;
+        border-radius: 25px;
+        padding: 15px;
+        padding-left: 40px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.618);
+        width: 70%;
+        height: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end; /* Align content to the bottom */
+        align-items: flex-start; /* Align content to the left */
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+        transition: 0.5s ease-in-out transform;
+        position: relative;
+        margin-left: 0px;
+    }
+    
+    .box-content {
+        position: static; /* Reset positioning for mobile */
+        text-align: center; /* Center text for mobile */
+    }
+
+    .box h2 {
+        font-size: 20px;
+    }
+
+    .box p {
+        font-size: 14px;
+    }
+
+    /* Practice Page */
+    .practice-container {
+        padding: 10px;
+    }
+
+    iframe {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Profile Page */
+    .profile-container {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .profile-pic {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-info {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .profile-info h1 {
+        font-size: 24px;
+    }
+
+    .profile-info p {
+        font-size: 16px;
+    }
+
+    /* Contact Page */
+    .contact-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    #contactForm input,
+    #contactForm textarea {
+        width: 90%;
+        
+    }
+
+    /* Tutorials Page */
+    .tutorial-grid {
+        grid-template-columns: 1fr; /* Single column for mobile */
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .tutorial-card {
+        padding: 15px;
+    }
+
+    .tutorial-card h2 {
+        font-size: 18px;
+    }
+
+    .tutorial-card .video-demo iframe {
+        height: 150px;
+    }
+
+    .tutorial-card .tutorial-link {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+    .icon {
+        width: 24px; /* Adjust the size as needed */
+        height: 24px; /* Adjust the size as needed */
+        top: 10px;
+        right: 10px;
+    }
+    .main-container {
+        margin-left: 2%; /* Existing left margin */
+        margin-right: 2%; /* Add this to balance the right margin */
+    }
+    
+    .box-container {
+        margin-left: 30px; /* Existing left margin */
+        margin-right: 30px; /* Add this to balance the right margin */
+    }
+    
+    .navbar {
+        padding-left: 50px; /* Existing left padding */
+        padding-right: 50px; /* Add this to balance the right padding */
+    }
+    
+    .profile-container,
+    .contact-container,
+    .practice-container {
+        margin-left: 20px; /* Existing left margin */
+        margin-right: 20px; /* Add this to balance the right margin */
+    }
+    .content h1 {
+        font-size: 36px;
+    }
+
+    .content p {
+        font-size: 16px;
+    }
+
+    .button {
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+
+    .content h2 {
+        font-size: 28px;
+    }
+
+    .content ul li a {
+        font-size: 16px;
+    }
+    .question {
+        width: 90%;
+        max-width: 300px;
+    }
+
+    .quiz-input {
+        width: 90%;
+    }
+
+    .button {
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Navigation Bar */
+    .logo a {
+        font-size: 30px;
+    }
+
+    li a {
+        font-size: 14px;
+        margin-right: 10px;
+    }
+
+    button {
+        width: 70px;
+        padding: 8px;
+    }
+
+    /* Home Page */
+    .home {
+        padding: 15px;
+    }
+
+    .box {
+        padding: 10px;
+    }
+
+    .box h2 {
+        font-size: 18px;
+    }
+
+    .box p {
+        font-size: 12px;
+    }
+
+    /* Profile Page */
+    .profile-pic {
+        width: 80px;
+        height: 80px;
+    }
+
+    .profile-info h1 {
+        font-size: 20px;
+    }
+
+    .profile-info p {
+        font-size: 14px;
+    }
+
+    /* Contact Page */
+    .contact-container {
+        padding: 10px;
+    }
+
+    #contactForm input,
+    #contactForm textarea {
+        width: 85%;
+    }
+
+    /* Tutorials Page */
+    .tutorial-card h2 {
+        font-size: 16px;
+    }
+
+    .tutorial-card .video-demo iframe {
+        height: 120px;
+    }
+
+    .tutorial-card .tutorial-link {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    .icon {
+        width: 34px; /* Adjust the size as needed */
+        height: 34px; /* Adjust the size as needed */
+        top: 10px;
+        right: 10px;
+    }
+    .main-container {
+        margin-left: 2%; /* Existing left margin */
+        margin-right: 2%; /* Add this to balance the right margin */
+    }
+    
+    .box-container {
+        margin-left: 30px; /* Existing left margin */
+        margin-right: 30px; /* Add this to balance the right margin */
+    }
+    
+    .navbar {
+        padding-left: 50px; /* Existing left padding */
+        padding-right: 50px; /* Add this to balance the right padding */
+    }
+    
+    .profile-container,
+    .contact-container,
+    .practice-container {
+        margin-left: 20px; /* Existing left margin */
+        margin-right: 20px; /* Add this to balance the right margin */
+    }
+    .content h1 {
+        font-size: 28px;
+    }
+
+    .content p {
+        font-size: 14px;
+    }
+
+    .button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .content h2 {
+        font-size: 24px;
+    }
+
+    .content ul li a {
+        font-size: 14px;
+    }
+    .question {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .quiz-input {
+        width: 100%;
+    }
+
+    .button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    
+}

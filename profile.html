@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navdiv">
+                <div class="logo"><a href="#">Profile</a></div>
+                <ul class="nav-btns">
+                    <li><a href="HomePage.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="Q&A.html">Q&A</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="profile-container">
+        <div class="profile-pic">
+            <img id="profilePic" src="icon-4399701_1280.webp" alt="Profile Picture">
+        </div>
+        <h2 id="userName">Loading...</h2>
+        <p id="userEmail">Email: Loading...</p>
+        <p id="userRegDate">Registered on: Loading...</p>
+
+        <form action="logout.php" method="POST">
+            <button type="submit">Logout</button>
+        </form>
+    </div>
+
+    <script>
+        // Fetch user data from PHP
+        fetch("profile.php")
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error);
+                    window.location.href = "LoginPage.html";
+                    return;
+                }
+                
+                document.getElementById("userName").innerText = data.username;
+                document.getElementById("userEmail").innerText = "Email: " + data.email;
+                document.getElementById("userRegDate").innerText = "Registered on: " + data.reg_date;
+            })
+            .catch(error => console.error("Error fetching user data:", error));
+
+
+
+//chatgpt (not really useful)
+function handleScroll() {
+    const profilePic = document.getElementById('profilePic');
+    const scrollY = window.scrollY;
+    const scrollEnd = 200;
+    
+    let scale = 1 - (scrollY / scrollEnd);
+    scale = Math.max(scale, 0.3);
+    
+    profilePic.style.transform = `scale(${scale})`;
+}
+
+// Add scroll event listener
+window.addEventListener('scroll', handleScroll);
+    </script>
+</body>
+</html>
